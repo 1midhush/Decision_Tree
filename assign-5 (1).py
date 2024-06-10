@@ -1,3 +1,4 @@
+import pandas as pd
 from collections import Counter
 
 # Function to calculate Gini index
@@ -77,22 +78,9 @@ def predict(tree, example):
     else:
         return predict(tree['right_subtree'], example)
 
-# Sample data
-# Format: [Alt, Bar, Fri, Hun, Pat, Price, Rain, Res, Type, Est, Wait]
-data = [
-    ['Some', 'F', 'F', 'T', 'Some', '$$$', 'F', 'T', 'French', '0-10', 'T'],
-    ['Full', 'F', 'F', 'T', 'Full', '$', 'F', 'F', 'Thai', '30-60', 'F'],
-    ['Some', 'T', 'F', 'F', 'None', '$', 'T', 'F', 'Burger', '0-10', 'T'],
-    ['Full', 'F', 'T', 'T', 'Some', '$', 'F', 'F', 'Thai', '10-30', 'T'],
-    ['Full', 'F', 'F', 'F', 'Some', '$$$', 'F', 'T', 'French', '>60', 'F'],
-    ['Some', 'F', 'T', 'F', 'Full', '$$', 'F', 'T', 'Italian', '0-10', 'T'],
-    ['None', 'F', 'F', 'F', 'None', '$', 'F', 'F', 'Burger', '0-10', 'F'],
-    ['Some', 'T', 'F', 'F', 'Some', '$$', 'T', 'T', 'Thai', '0-10', 'T'],
-    ['Full', 'T', 'T', 'T', 'Full', '$', 'T', 'F', 'Burger', '>60', 'F'],
-    ['Full', 'T', 'T', 'T', 'Full', '$$$', 'F', 'T', 'Italian', '10-30', 'F'],
-    ['Some', 'F', 'F', 'F', 'None', '$', 'T', 'T', 'Thai', '0-10', 'F'],
-    ['Full', 'T', 'T', 'T', 'Full', '$', 'F', 'F', 'Burger', '30-60', 'T']
-]
+# Read data from CSV file
+df = pd.read_csv('D:\iitg\AI\data.csv')
+data = df.values.tolist()
 
 # Extract features and labels
 features = [row[:-1] for row in data]
@@ -107,4 +95,3 @@ new_example = ['Full', 'F', 'F', 'T', 'Full', '$', 'F', 'F', 'Thai', '30-60']
 # Predict using decision tree
 prediction = predict(decision_tree, new_example)
 print("Prediction for the new example:", prediction)
-
