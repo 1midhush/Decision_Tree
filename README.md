@@ -1,11 +1,11 @@
-#Decision Tree Classifier
+# Decision Tree Classifier
 This repository contains a simple implementation of a decision tree classifier in Python. The decision tree classifier is built using the Gini index to find the best attribute for splitting the dataset at each step.
 
-#Functions
+# Functions
 calculate_gini(labels)
 Calculates the Gini index for a given set of labels.
 
-#Parameters:
+# Parameters:
 labels (list): A list of labels for the dataset.
 Returns:
 gini (float): The Gini index for the labels.
