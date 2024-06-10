@@ -1,0 +1,13 @@
+Alt,Bar,Fri,Hun,Pat,Price,Rain,Res,Type,Est,Wait
+Some,F,F,T,Some,$$$,F,T,French,0-10,T
+Full,F,F,T,Full,$,F,F,Thai,30-60,F
+Some,T,F,F,None,$,T,F,Burger,0-10,T
+Full,F,T,T,Some,$,F,F,Thai,10-30,T
+Full,F,F,F,Some,$$$,F,T,French,>60,F
+Some,F,T,F,Full,$$,F,T,Italian,0-10,T
+None,F,F,F,None,$,F,F,Burger,0-10,F
+Some,T,F,F,Some,$$,T,T,Thai,0-10,T
+Full,T,T,T,Full,$,T,F,Burger,>60,F
+Full,T,T,T,Full,$$$,F,T,Italian,10-30,F
+Some,F,F,F,None,$,T,T,Thai,0-10,F
+Full,T,T,T,Full,$,F,F,Burger,30-60,T
