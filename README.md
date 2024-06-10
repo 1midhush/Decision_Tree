@@ -1,98 +1,37 @@
-# Decision Tree Classifier
+Decision Tree for Table Serving Prediction
+This project implements a decision tree algorithm to predict whether a table should be served or not based on various attributes. The decision tree is constructed using the Gini index as the splitting criterion.
 
-This repository contains a simple implementation of a decision tree classifier in Python. The decision tree classifier is built using the Gini index to find the best attribute for splitting the dataset at each step.
+Dataset
+The dataset used for training and testing the decision tree consists of the following variables:
 
-## Functions
+Altitude (Alt): Altitude of the restaurant, categorized as "Some" or "Full".
+Bar Availability (Bar): Availability of a bar at the restaurant, categorized as "T" (True) or "F" (False).
+Day of the Week (Fri): Whether it's a Friday or not, categorized as "T" (True) or "F" (False).
+Hungry (Hun): Whether the customer is hungry or not, categorized as "T" (True) or "F" (False).
+Patron Type (Pat): Type of patron, categorized as "Some", "Full", or "None".
+Price Range (Price): Price range of the restaurant, categorized as "$", "$$", or "$$$".
+Rainy Weather (Rain): Whether it's raining or not, categorized as "T" (True) or "F" (False).
+Reservation (Res): Whether a reservation has been made, categorized as "T" (True) or "F" (False).
+Cuisine Type (Type): Type of cuisine offered at the restaurant.
+Estimated Wait Time (Est): Estimated wait time for a table, categorized as "0-10", "10-30", "30-60", or ">60" minutes.
+Usage
+Install Required Packages: Ensure you have Python installed along with the necessary packages. You can install the required packages using pip:
 
-### `calculate_gini(labels)`
+Copy code
+pip install pandas
+Prepare Dataset: Prepare your dataset in CSV format with the specified variables.
 
-Calculates the Gini index for a given set of labels.
+Run the Script: Run the decision_tree.py script to train the decision tree model and make predictions. Ensure to update the file path in the script to point to your dataset.
 
-- **Parameters**: 
-  - `labels` (list): A list of labels for the dataset.
-- **Returns**: 
-  - `gini` (float): The Gini index for the labels.
+Example
+Here's an example of how to use the decision tree model:
 
-### `split_dataset(data, labels, attribute_index, attribute_value)`
-
-Splits the dataset based on a given attribute and its value.
-
-- **Parameters**:
-  - `data` (list of lists): The dataset features.
-  - `labels` (list): The labels corresponding to the dataset.
-  - `attribute_index` (int): The index of the attribute to split on.
-  - `attribute_value` (str/int/float): The value of the attribute to split on.
-- **Returns**:
-  - `left_data`, `left_labels`, `right_data`, `right_labels`: The resulting datasets and labels after the split.
-
-### `find_best_split(data, labels)`
-
-Finds the best attribute and value to split the dataset on to minimize the Gini index.
-
-- **Parameters**:
-  - `data` (list of lists): The dataset features.
-  - `labels` (list): The labels corresponding to the dataset.
-- **Returns**:
-  - `best_attribute_index` (int): The index of the best attribute to split on.
-  - `best_attribute_value` (str/int/float): The value of the best attribute to split on.
-  - `best_left_data`, `best_left_labels`, `best_right_data`, `best_right_labels`: The resulting datasets and labels after the best split.
-
-### `build_decision_tree(data, labels)`
-
-Builds the decision tree recursively.
-
-- **Parameters**:
-  - `data` (list of lists): The dataset features.
-  - `labels` (list): The labels corresponding to the dataset.
-- **Returns**:
-  - `node` (dict or str): The decision tree represented as nested dictionaries, or a string if it is a leaf node.
-
-### `predict(tree, example)`
-
-Predicts the label for a given example using the decision tree.
-
-- **Parameters**:
-  - `tree` (dict): The decision tree.
-  - `example` (list): The example to predict.
-- **Returns**:
-  - `prediction` (str): The predicted label for the example.
-
-## Example
-
-Here is an example of how to use the decision tree classifier:
-
-```python
-# Sample data
-data = [
-    ['Some', 'F', 'F', 'T', 'Some', '$$$', 'F', 'T', 'French', '0-10', 'T'],
-    ['Full', 'F', 'F', 'T', 'Full', '$', 'F', 'F', 'Thai', '30-60', 'F'],
-    # ... more data ...
-]
-
-# Extract features and labels
-features = [row[:-1] for row in data]
-labels = [row[-1] for row in data]
-
-# Build decision tree
-decision_tree = build_decision_tree(features, labels)
-
-# Example to predict
+python
+Copy code
+# Example usage of the decision tree model
+# Make sure to provide the necessary data
 new_example = ['Full', 'F', 'F', 'T', 'Full', '$', 'F', 'F', 'Thai', '30-60']
 
 # Predict using decision tree
 prediction = predict(decision_tree, new_example)
 print("Prediction for the new example:", prediction)
-```
-
-## Installation
-
-This implementation does not require any special libraries, only Python 3.
-
-## Usage
-
-Copy the code for the functions into your Python environment and use the example provided to build and test the decision tree classifier.
-
-## License
-
-This project is licensed under the MIT License.
-
