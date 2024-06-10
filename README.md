@@ -17,6 +17,10 @@ The dataset used for training and testing the decision tree consists of the foll
 9. **Cuisine Type (Type)**: Type of cuisine offered at the restaurant.
 10. **Estimated Wait Time (Est)**: Estimated wait time for a table, categorized as "0-10", "10-30", "30-60", or ">60" minutes.
 
+## Example Data
+
+![Decision Tree Data](decision_tree_data.png)
+
 ## Usage
 
 1. **Install Required Packages**: Ensure you have Python installed along with the necessary packages. You can install the required packages using pip:
